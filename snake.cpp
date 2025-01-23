@@ -39,7 +39,7 @@ int main(){
             
         else if ((snek[2] % board_size) == fruit[0] && (snek[3] % board_size) == fruit[1])
             for (int i = 0; i < 2; i++)
-                fruit[i] = ((snek[next++] = snek[next - 2]) % board_size) + 5 - ((lfsr = (lfsr >> 1) | ((bit = ((lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5) ) & 1) << 15)) % 10) % board_size;
+                fruit[i] = (((snek[next++] = snek[next - 2])) + 5 - ((lfsr = (lfsr >> 1) | ((bit = ((lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5) ) & 1) << 15)) % 10)) % (board_size - 1);
         
         //print the board
         system("stty cooked"); 
